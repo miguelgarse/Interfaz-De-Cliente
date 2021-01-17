@@ -3,11 +3,8 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label, BaseChartDirective } from 'ng2-charts';
 import { UploadService } from 'src/app/services/upload.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { delay } from 'q';
-import { Client } from 'src/app/models/client';
 import { Sensor } from 'src/app/models/Sensor';
 import { TimeLine } from 'src/app/models/TimeLine';
-import { Valores } from 'src/app/models/Valores';
 import { Datostabla } from 'src/app/models/DatosTabla';
 
 @Component({
@@ -24,6 +21,7 @@ export class GraficaHumedadComponent {
   datosTabla: Datostabla[] = [];
   insante;
   hour;
+
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {

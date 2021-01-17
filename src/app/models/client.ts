@@ -1,19 +1,14 @@
 import { Valores } from 'src/app/models/Valores';
 import { Sensor } from './Sensor';
+
 export class Client {
 
     id: Number;
-
     descripcion: String;
-
     letra: String;
-
     thingsboardId: String;
-
     valores:Valores;
-
     sensores: Sensor[];
-
     estado:number;
 
     constructor(id: Number, descripcion: String, letra: String, thingsboardId: String, valores:Valores, estado:number, sensores: Sensor[]) {
@@ -25,6 +20,5 @@ export class Client {
         this.estado = estado;
         this.sensores = sensores;
     }
-
 
 }

@@ -4,7 +4,7 @@ import { UploadService } from 'src/app/services/upload.service'
 import { tipoSensor } from 'src/app/models/tipoSensor';
 
 import { Rango } from '../../models/Rango';
-import { Client } from 'src/app/models/client';
+import { Client } from 'src/app/models/Client';
 import { Valores } from 'src/app/models/Valores';
 import { Sensor } from 'src/app/models/Sensor';
 import { TimeLine } from 'src/app/models/TimeLine';

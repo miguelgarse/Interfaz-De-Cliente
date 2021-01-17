@@ -11,7 +11,7 @@ export class Valores {
     humedad_tierra: any[]=[];
     temperatura_interior: any[]=[];
     temperatura_ambiental: any[]=[];
-    constructor(){ 
-            
-    }
+
+    constructor(){ }
+    
 }
