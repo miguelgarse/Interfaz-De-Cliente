@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { APP_ROUTING } from './app.routes';
 import { HomeComponent } from './components/home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { UploadService } from './services/upload.service';
@@ -16,6 +15,10 @@ import { GraficaLuminosidadComponent } from './components/grafica-luminosidad/gr
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +32,15 @@ import { LandingComponent } from './components/landing/landing.component';
     GraficaLuminosidadComponent,
     SitemapComponent,
     LandingComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
     TooltipModule,
-    APP_ROUTING,
     ChartsModule
   ],
   providers: [

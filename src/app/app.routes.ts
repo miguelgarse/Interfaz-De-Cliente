@@ -8,9 +8,11 @@ import { GraficaCalidadComponent } from './components/grafica-calidad/grafica-ca
 import { GraficaLuminosidadComponent } from './components/grafica-luminosidad/grafica-luminosidad.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
+import { NgModule } from '@angular/core';
 
-const APP_ROUTES: Routes = [
-  { path: '', component: LandingComponent },
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'graficaLuminosidad/:id', component: GraficaLuminosidadComponent },
   { path: 'graficaTemperatura/:id', component: GraficaTemperaturaComponent },
@@ -19,7 +21,12 @@ const APP_ROUTES: Routes = [
   { path: 'comparador', component: ComparadorComponent },
   { path: 'about', component: AboutComponent },
   { path: 'sitemap', component: SitemapComponent },
-  { path: '**', component: LandingComponent }
+  { path: '', redirectTo: 'start', pathMatch: 'full' },
+  { path: '**', redirectTo:'login'}
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
