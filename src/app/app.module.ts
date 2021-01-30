@@ -18,6 +18,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
+import { RegisterComponent } from './app/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AppRoutingModule } from './app.routes';
     SitemapComponent,
     LandingComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
