@@ -1,0 +1,7 @@
+.background-image {
+    background-image: url(https://moodle.upm.es/titulaciones/oficiales/login/imag/19_alvaro_fernandez_robledo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
