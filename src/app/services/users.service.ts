@@ -18,7 +18,7 @@ export class UsersService {
   login(username: string, password: string): Observable<Usuario> {
     let params = new HttpParams().set('user', username).set('pass', password);
 
-    this.endPoint = this.apiEndpoint + "/api/login";
+    this.endPoint = this.apiEndpoint + "/users/login";
     return this.http.get<Usuario>(this.endPoint, { headers: null, params: params });
   }
 
