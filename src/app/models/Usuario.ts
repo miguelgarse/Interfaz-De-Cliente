@@ -1,6 +1,10 @@
 
 export class Usuario {
     id: number;
-    usuario: string;
-    pass: string;
+    username: string;
+    password: string;
+    mail: string;
+
+    constructor(){ }
+
 }
