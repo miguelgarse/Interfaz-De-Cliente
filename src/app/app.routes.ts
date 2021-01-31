@@ -10,9 +10,11 @@ import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'graficaLuminosidad/:id', component: GraficaLuminosidadComponent },
   { path: 'graficaTemperatura/:id', component: GraficaTemperaturaComponent },
