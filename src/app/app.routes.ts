@@ -7,7 +7,6 @@ import { GraficaHumedadComponent } from './components/grafica-humedad/grafica-hu
 import { GraficaCalidadComponent } from './components/grafica-calidad/grafica-calidad.component';
 import { GraficaLuminosidadComponent } from './components/grafica-luminosidad/grafica-luminosidad.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
-import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './components/register/register.component';

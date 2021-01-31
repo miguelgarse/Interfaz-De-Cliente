@@ -15,7 +15,6 @@ import { GraficaCalidadComponent } from './components/grafica-calidad/grafica-ca
 import { GraficaLuminosidadComponent } from './components/grafica-luminosidad/grafica-luminosidad.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
-import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
@@ -34,7 +33,6 @@ import { ToastrModule } from 'ngx-toastr';
     GraficaHumedadComponent,
     GraficaLuminosidadComponent,
     SitemapComponent,
-    LandingComponent,
     LoginComponent,
     RegisterComponent,
   ],
