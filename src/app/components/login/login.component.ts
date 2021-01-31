@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -16,12 +17,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
     private userService: UsersService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private toastr: ToastrService) {
 
     this.crearFormulario();
   }
 
-  ngOnInit() { }
+  ngOnInit( ) { 
+    
+  }
 
   /**
    * 
@@ -40,12 +44,15 @@ export class LoginComponent implements OnInit {
     let username: string = this.loginForm.controls.usuario.value;
     let password: string = this.loginForm.controls.password.value;
 
-    this.userService.login(username, password).subscribe((result: Usuario) => {
-      if (username === result.username) {
+    this.userService.login(username, password).subscribe((connectedUser: Usuario) => {
+      if (username === connectedUser.username) {
         sessionStorage.setItem('sesion', 'activa')
+       
+        sessionStorage.setItem('connectedUser', JSON.stringify(connectedUser));
+        var obj = JSON.parse(sessionStorage.getItem("connectedUser"));
         this.router.navigateByUrl('home', { skipLocationChange: true });
       } else {
-        window.location.reload();
+        this.toastr.error("Usuario o contraseña incorrecto");
       }
     });
   }

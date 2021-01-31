@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -18,7 +19,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
-import { RegisterComponent } from './app/components/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,18 @@ import { RegisterComponent } from './app/components/register/register.component'
     RegisterComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     TooltipModule,
-    ChartsModule
+    ChartsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+    })
   ],
   providers: [
     UploadService  

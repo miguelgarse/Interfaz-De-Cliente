@@ -37,25 +37,25 @@ export class RegisterComponent implements OnInit {
       }, (error: any) => {
         switch (error.status) {
           case HttpStatusCodes.BAD_REQUEST:
-            // this.toastr.error("No se ha enviado el usuario, el correo o la contraseña");
+            this.toastr.error("No se ha enviado el usuario, el correo o la contraseña");
             break;
           case HttpStatusCodes.CONFLICT:
-            // this.toastr.error("Nombre de usuario duplicado");
+            this.toastr.error("Nombre de usuario duplicado");
             break;
           case HttpStatusCodes.INTERNAL_SERVER_ERROR:
-            // this.toastr.error("Error interno del servidor");
+            this.toastr.error("Error interno del servidor");
             break;
         }
       });
     } else {
       if (!this.user.username || this.user.username.length < 1) {
-        //this.toastr.error("Debe introducir un usuario");
+        this.toastr.error("Debe introducir un usuario");
       }
       if (!this.user.mail || this.user.mail.length < 1) {
-        //this.toastr.error("Debe introducir un correo");
+        this.toastr.error("Debe introducir un correo");
       }
       if (!this.user.password || this.user.password.length < 1) {
-        // this.toastr.error("Debe introducir una contraseña");
+        this.toastr.error("Debe introducir una contraseña");
       }
     }
   }
@@ -68,16 +68,16 @@ export class RegisterComponent implements OnInit {
 
      if (response.status == HttpStatusCodes.OK) { // Usuario ya existe
         console.log("Usuario ya existe");
-        // this.toastr.warning("El usuario " + this.username + " ya existe");
+        this.toastr.warning("El usuario " + this.user.username + " ya existe");
       }
 
     }, (error: any) => {
       if (error.status == HttpStatusCodes.NOT_FOUND) { // Usuario no existe
         console.log("Usuario no existe");
-       // this.toastr.info("El usuario " + this.username + " está disponible");
+        this.toastr.info("El usuario " + this.user.username + " está disponible");
       } else if (error.status == HttpStatusCodes.INTERNAL_SERVER_ERROR) {
         console.log("Error en el servidor");
-        // this.toastr.error("Error al comporbar existencia del usuario " + this.username);
+        this.toastr.error("Error al comporbar existencia del usuario " + this.user.username);
       }
     });
   }
