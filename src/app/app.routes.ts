@@ -13,7 +13,7 @@ import { NgModule } from '@angular/core';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'graficaLuminosidad/:id', component: GraficaLuminosidadComponent },
@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'comparador', component: ComparadorComponent },
   { path: 'about', component: AboutComponent },
   { path: 'sitemap', component: SitemapComponent },
-  { path: '', redirectTo: 'start', pathMatch: 'full' },
-  { path: '**', redirectTo:'login'}
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo:''}
 ];
 
 @NgModule({
