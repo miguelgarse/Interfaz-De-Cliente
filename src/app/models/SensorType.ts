@@ -1,4 +1,5 @@
-export class tipoSensor {
+
+export class SensorType {
 
     tipos: String[]=["agua","peso","humedad_tierra","temperatura_interior","humedad_ambiental","luz_ambiental","temperatura_ambiental","Co2"];
 
@@ -10,7 +11,7 @@ export class tipoSensor {
         this.descripcion = descripcion;
     }
 
-    getTipo(){
+    getType(){
         return this.tipos;
     }
 }
