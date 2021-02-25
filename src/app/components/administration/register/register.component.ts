@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsersService } from 'src/app/services/users.service';
@@ -7,7 +8,7 @@ import { HttpStatusCodes } from 'src/app/utils/http-status-codes';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
 
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   public repeatedPassword: string = "";
   
   constructor(private usersService: UsersService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
       && this.user.mail && this.user.mail.length > 0
       && this.user.password && this.user.password.length > 0) {
 
-      this.usersService.registerUser(this.user.username, this.user.mail, this.user.password).subscribe(response => {
+      this.usersService.registerUser(this.user).subscribe(response => {
 
         switch (response.status) {
           case HttpStatusCodes.CREATED:
@@ -80,6 +82,10 @@ export class RegisterComponent implements OnInit {
         this.toastr.error("Error al comporbar existencia del usuario " + this.user.username);
       }
     });
+  }
+
+  redirectLogin(): void{
+    this.router.navigateByUrl('', { skipLocationChange: true });
   }
 
 }
