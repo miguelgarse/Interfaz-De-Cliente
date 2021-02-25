@@ -6,8 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UploadService {
   private endPoint: string;
-  // private apiEndpoint: string = "http://138.4.92.46:8090"; // PRO
-  private apiEndpoint: string = "http://localhost:8090";      // LOCAL
+  private apiEndpoint: string = "http://localhost:8090";     // LOCAL
+  // private apiEndpoint: string = "http://88.18.184.82:8090";  // INT
+  // private apiEndpoint: string = "http://138.4.92.46:8090";   // PRO
 
   constructor(private _http: HttpClient) { }
 

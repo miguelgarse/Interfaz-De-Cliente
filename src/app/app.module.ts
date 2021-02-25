@@ -9,17 +9,20 @@ import { UploadService } from './services/upload.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ComparadorComponent } from './components/comparador/comparador.component';
 import { AboutComponent } from './components/about/about.component';
-import { GraficaTemperaturaComponent } from './components/grafica-temperatura/grafica-temperatura.component';
-import { GraficaHumedadComponent } from './components/grafica-humedad/grafica-humedad.component';
-import { GraficaCalidadComponent } from './components/grafica-calidad/grafica-calidad.component';
-import { GraficaLuminosidadComponent } from './components/grafica-luminosidad/grafica-luminosidad.component';
+import { GraficaTemperaturaComponent } from './components/graficas/grafica-temperatura/grafica-temperatura.component';
+import { GraficaHumedadComponent } from './components/graficas/grafica-humedad/grafica-humedad.component';
+import { GraficaCalidadComponent } from './components/graficas/grafica-calidad/grafica-calidad.component';
+import { GraficaLuminosidadComponent } from './components/graficas/grafica-luminosidad/grafica-luminosidad.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/administration/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { TableClientsComponent } from './components/table-clients/table-clients.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { ToastrModule } from 'ngx-toastr';
     SitemapComponent,
     LoginComponent,
     RegisterComponent,
+    AdminPanelComponent,
+    TableClientsComponent,
   ],
   imports: [
     BrowserModule, 
@@ -51,7 +56,8 @@ import { ToastrModule } from 'ngx-toastr';
     })
   ],
   providers: [
-    UploadService  
+    UploadService,
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })
