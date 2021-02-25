@@ -1,10 +1,10 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from 'src/app/models/Usuario';
+import { Jwt } from 'src/app/models/Jwt';
 import { UsersService } from 'src/app/services/users.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
     private userService: UsersService,
+    private tokenService: TokenService,
     private fb: FormBuilder,
     private toastr: ToastrService) {
 
@@ -24,12 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit( ) { 
-    
+    if(this.tokenService.getToken()){
+      this.router.navigateByUrl('home', { skipLocationChange: true });
+    }
   }
 
-  /**
-   * 
-   */
   crearFormulario() {
     this.loginForm = this.fb.group({
       usuario: ['', Validators.required],
@@ -37,28 +37,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /**
-   * 
-   */
   login() {
     let username: string = this.loginForm.controls.usuario.value;
     let password: string = this.loginForm.controls.password.value;
 
-    this.userService.login(username, password).subscribe((connectedUser: Usuario) => {
-      if (username === connectedUser.username) {
-        sessionStorage.setItem('sesion', 'activa')
-       
-        sessionStorage.setItem('connectedUser', JSON.stringify(connectedUser));
-        var obj = JSON.parse(sessionStorage.getItem("connectedUser"));
-        this.router.navigateByUrl('home', { skipLocationChange: true });
-      } else {
-        this.toastr.error("Usuario o contraseña incorrecto");
-      }
+    this.userService.login(username, password).subscribe((jwt: Jwt) => {
+      this.tokenService.setToken(jwt.token);
+      this.tokenService.setUserName(jwt.username);
+      this.tokenService.setAuthorities(jwt.authorities);
+
+      this.router.navigateByUrl('home', { skipLocationChange: true });
+    }, error => {
+      this.toastr.error("Usuario o contraseña incorrecto");
     });
   }
-
-  redirectRegister(): void{
-    this.router.navigateByUrl('register', { skipLocationChange: true });
-  }
-
 }
