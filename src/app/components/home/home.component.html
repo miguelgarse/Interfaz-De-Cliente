@@ -12,16 +12,17 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a routerLink="table-clients" class="nav-link">Proyectos</a>
+                <a routerLink="table-clients" class="nav-link"> <i class="bi bi-view-list"></i> Proyectos</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Añadir datos</a>
+                <a routerLink="add-data" class="nav-link"><i class="bi bi-plus-circle"></i> Añadir datos</a>
             </li>
 
             <li class="dropdown nav-item" *ngIf="isAdmin()">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" 
                     aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-gear-fill"></i>
                     Administración
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -34,8 +35,8 @@
         </ul>
 
         <span class="navbar-text">
-            <span class="username">{{getUserName()}}</span>
-            <button type="button" class="btn btn-outline-secondary" (click)="logout()"><i class="bi bi-box-arrow-right"></i></button>
+            <span class="username"><i class="bi bi-person-circle"></i> {{getUserName()}}</span>
+            <button type="button" class="btn btn-outline-secondary bi bi-box-arrow-right" (click)="logout()"></button>
         </span>
     </div>
 </nav>
@@ -43,3 +44,25 @@
 
 <router-outlet></router-outlet>
 
+
+
+<!-- Footer -->
+<footer class="footer font-small pt-2">
+
+    <div class="container">
+
+      <ul class="list-unstyled text-center py-1">
+        <li>
+          <h5 class="mb-1" style="font-size: 15px;">Developed by Miguel García Serrano  <i class="bi bi-github"></i></h5>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-copyright text-center py-2">© 2020 Copyright:
+      <a href="https://www.upm.es/"> Universidad Politécnica de Madrid</a> |
+      <a href="https://www.etsisi.upm.es/"> ETSISI</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->

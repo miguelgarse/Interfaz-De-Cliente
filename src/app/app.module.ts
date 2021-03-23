@@ -23,6 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { TableClientsComponent } from './components/table-clients/table-clients.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
+import { AddDataComponent } from './components/add-data/add-data.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { interceptorProvider } from './interceptors/prod-interceptor.service';
     RegisterComponent,
     AdminPanelComponent,
     TableClientsComponent,
+    AddDataComponent,
   ],
   imports: [
     BrowserModule, 
@@ -50,6 +53,7 @@ import { interceptorProvider } from './interceptors/prod-interceptor.service';
     HttpClientModule,
     TooltipModule,
     ChartsModule,
+    ZXingScannerModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',

@@ -11,16 +11,30 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './components/administration/register/register.component';
 import { TableClientsComponent } from './components/table-clients/table-clients.component';
+import { ProdGuardService as guard } from './guards/prod-guard.service';
+import { AddDataComponent } from './components/add-data/add-data.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent, children: [
+    { path: '', redirectTo: 'table-clients', pathMatch: 'full' },
+    {
+      path: 'table-clients',
+      component: TableClientsComponent,
+      canActivate: [guard], 
+      data: { expectedRol: ['admin', 'user'] }
+    },
+    {
+      path: 'add-data',
+      component: AddDataComponent,
+      canActivate: [guard], 
+      data: { expectedRol: ['admin', 'user'] }
+    },
     {
       path: 'register',
-      component: RegisterComponent
-    }, {
-      path: 'table-clients',
-      component: TableClientsComponent
+      component: RegisterComponent,
+      canActivate: [guard],
+      data: { expectedRol: ['admin'] }
     }
   ]},
   { path: 'graficaLuminosidad/:id', component: GraficaLuminosidadComponent },
