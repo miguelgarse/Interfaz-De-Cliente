@@ -6,9 +6,11 @@ export class Usuario {
     lastname: string;
     username: string;
     password: string;
-    mail: string;
+    email: string;
     roles: Role[];
-
+    createdBy: Usuario;
+	dateCreated: Date;
+    
     constructor(){ }
 
     public isAdmin(): boolean{

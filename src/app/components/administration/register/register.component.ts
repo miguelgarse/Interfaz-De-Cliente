@@ -14,17 +14,18 @@ export class RegisterComponent implements OnInit {
 
   public user: Usuario = new Usuario();
   public repeatedPassword: string = "";
-  
+  public usersList: Usuario[] = [];
+
   constructor(private usersService: UsersService,
-    private toastr: ToastrService,
-    private router: Router) { }
+    private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.getUserList();
   }
 
   public register(): void {
     if (this.user.username && this.user.username.length > 0
-      && this.user.mail && this.user.mail.length > 0
+      && this.user.email && this.user.email.length > 0
       && this.user.password && this.user.password.length > 0) {
 
       this.usersService.registerUser(this.user).subscribe(response => {
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
           case HttpStatusCodes.CREATED:
             console.log("Usuario creado correctamente: " + this.user.username);
             this.toastr.success("Usuario registrado correctamente: " + this.user.username);
+            this.getUserList(); // Refrescar tabla de usuarios
             break;
         }
 
@@ -53,7 +55,7 @@ export class RegisterComponent implements OnInit {
       if (!this.user.username || this.user.username.length < 1) {
         this.toastr.error("Debe introducir un usuario");
       }
-      if (!this.user.mail || this.user.mail.length < 1) {
+      if (!this.user.email || this.user.email.length < 1) {
         this.toastr.error("Debe introducir un correo");
       }
       if (!this.user.password || this.user.password.length < 1) {
@@ -84,8 +86,12 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  redirectLogin(): void{
-    this.router.navigateByUrl('', { skipLocationChange: true });
+  public getUserList(): void {
+    this.usersService.getAllUsers().subscribe((users: Usuario[]) => {
+      this.usersList = users;
+    }, error => {
+      console.error('Error getting all users');
+    });
   }
 
 }

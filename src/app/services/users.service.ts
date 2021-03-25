@@ -34,4 +34,8 @@ export class UsersService {
     });
   }
 
+  public getAllUsers(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiEndpoint + "/api/admin/getAllUsers");
+  }
+
 }
