@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { UploadService } from './services/upload.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { ComparadorComponent } from './components/comparador/comparador.component';
 import { AboutComponent } from './components/about/about.component';
 import { GraficaTemperaturaComponent } from './components/graficas/grafica-temperatura/grafica-temperatura.component';
@@ -18,13 +18,14 @@ import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
-import { RegisterComponent } from './components/administration/register/register.component';
+import { RegisterComponent } from './components/home/administration/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
-import { TableClientsComponent } from './components/table-clients/table-clients.component';
+import { TableClientsComponent } from './components/home/table-clients/table-clients.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
-import { AddDataComponent } from './components/add-data/add-data.component';
+import { AddDataComponent } from './components/home/add-data/add-data.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { PrincipalComponent } from './components/home/principal/principal.component';
+import { ProjectsComponent } from './components/home/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +41,10 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     SitemapComponent,
     LoginComponent,
     RegisterComponent,
-    AdminPanelComponent,
     TableClientsComponent,
     AddDataComponent,
+    PrincipalComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule, 

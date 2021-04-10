@@ -9,15 +9,23 @@ import { GraficaLuminosidadComponent } from './components/graficas/grafica-lumin
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
-import { RegisterComponent } from './components/administration/register/register.component';
-import { TableClientsComponent } from './components/table-clients/table-clients.component';
+import { RegisterComponent } from './components/home/administration/register/register.component';
+import { TableClientsComponent } from './components/home/table-clients/table-clients.component';
 import { ProdGuardService as guard } from './guards/prod-guard.service';
-import { AddDataComponent } from './components/add-data/add-data.component';
+import { AddDataComponent } from './components/home/add-data/add-data.component';
+import { PrincipalComponent } from './components/home/principal/principal.component';
+import { ProjectsComponent } from './components/home/projects/projects.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent, children: [
-    { path: '', redirectTo: 'table-clients', pathMatch: 'full' },
+    { path: '', redirectTo: 'table-projects', pathMatch: 'full' },
+    {
+      path: 'table-projects',
+      component: PrincipalComponent,
+      canActivate: [guard], 
+      data: { expectedRol: ['admin', 'user'] }
+    },
     {
       path: 'table-clients',
       component: TableClientsComponent,
@@ -25,8 +33,8 @@ const routes: Routes = [
       data: { expectedRol: ['admin', 'user'] }
     },
     {
-      path: 'add-data',
-      component: AddDataComponent,
+      path: 'projects',
+      component: ProjectsComponent,
       canActivate: [guard], 
       data: { expectedRol: ['admin', 'user'] }
     },

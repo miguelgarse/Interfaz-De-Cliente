@@ -1,8 +1,16 @@
 <div class="background-image">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
+        <br>
+        <div class="jumbotron text-center jumbotron-custom">
+            <h2 class="display-4">Plataforma IoT de la E.T.S.I. Sistemas Informáticos</h2>
+            <p class="lead">Bienvenido al laboratorio web para la experimentación con dispositivos IoT basado en la colaboración y compartición de conocimiento</p>
+            
+            <!-- <p>Aprende, colabora, crea, descubre y sobretodo comparte. ¡Autenticate y empieza!</p>
+            <a class="btn btn-primary btn-lg" (click)="login()" role="button">Accede</a> -->
+        </div>
+
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto fade-in">
+                <div class="card card-signin my-1">
                     <div class="card-body">
                         <h5 class="card-title text-center">Login</h5>
                         <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -22,6 +30,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+            
     </div>
 </div>

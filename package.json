@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^8.2.13",
     "@angular/platform-browser-dynamic": "^8.2.13",
     "@angular/router": "^8.2.13",
+    "@swimlane/ngx-datatable": "^19.0.0",
     "@types/mysql": "^2.15.15",
     "@types/node": "^12.12.54",
     "@zxing/browser": "0.0.7",
