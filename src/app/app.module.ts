@@ -25,6 +25,7 @@ import { AddDataComponent } from './components/home/add-data/add-data.component'
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { PrincipalComponent } from './components/home/principal/principal.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
+import { MyProjectsComponent } from './components/home/my-projects/my-projects.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProjectsComponent } from './components/home/projects/projects.component
     TableClientsComponent,
     AddDataComponent,
     PrincipalComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    MyProjectsComponent
   ],
   imports: [
     BrowserModule, 
