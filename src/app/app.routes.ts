@@ -1,6 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ComparadorComponent } from './components/comparador/comparador.component';
 import { AboutComponent } from './components/about/about.component';
 import { GraficaTemperaturaComponent } from './components/graficas/grafica-temperatura/grafica-temperatura.component';
 import { GraficaHumedadComponent } from './components/graficas/grafica-humedad/grafica-humedad.component';
@@ -49,7 +48,6 @@ const routes: Routes = [
   { path: 'graficaTemperatura/:id', component: GraficaTemperaturaComponent },
   { path: 'graficaHumedad/:id', component: GraficaHumedadComponent },
   { path: 'graficaCalidad/:id', component: GraficaCalidadComponent },
-  { path: 'comparador', component: ComparadorComponent },
   { path: 'about', component: AboutComponent },
   { path: 'sitemap', component: SitemapComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },

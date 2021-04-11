@@ -7,7 +7,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { UploadService } from './services/upload.service';
 import { NavbarComponent } from './components/home/navbar/navbar.component';
-import { ComparadorComponent } from './components/comparador/comparador.component';
 import { AboutComponent } from './components/about/about.component';
 import { GraficaTemperaturaComponent } from './components/graficas/grafica-temperatura/grafica-temperatura.component';
 import { GraficaHumedadComponent } from './components/graficas/grafica-humedad/grafica-humedad.component';
@@ -32,7 +31,6 @@ import { ProjectsComponent } from './components/home/projects/projects.component
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    ComparadorComponent,
     AboutComponent,
     GraficaTemperaturaComponent,
     GraficaCalidadComponent,
