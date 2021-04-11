@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AddDataService } from 'src/app/services/add-data.service';
+import { Router } from '@angular/router';
+import { Client } from 'src/app/models/Client';
+import { Jwt } from 'src/app/models/Jwt';
+import { Sensor } from 'src/app/models/Sensor';
+import { SensorType } from 'src/app/models/SensorType';
+import { TimeLine } from 'src/app/models/TimeLine';
+import { Valores } from 'src/app/models/Valores';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-projects',

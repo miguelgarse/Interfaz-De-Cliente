@@ -14,26 +14,21 @@ import { ProdGuardService as guard } from './guards/prod-guard.service';
 import { AddDataComponent } from './components/home/add-data/add-data.component';
 import { PrincipalComponent } from './components/home/principal/principal.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
+import { MyProjectsComponent } from './components/home/my-projects/my-projects.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent, children: [
-    { path: '', redirectTo: 'table-projects', pathMatch: 'full' },
-    {
-      path: 'table-projects',
-      component: PrincipalComponent,
-      canActivate: [guard], 
-      data: { expectedRol: ['admin', 'user'] }
-    },
-    {
-      path: 'table-clients',
-      component: TableClientsComponent,
-      canActivate: [guard], 
-      data: { expectedRol: ['admin', 'user'] }
-    },
+    { path: '', redirectTo: 'projects', pathMatch: 'full' },
     {
       path: 'projects',
       component: ProjectsComponent,
+      canActivate: [guard], 
+      data: { expectedRol: ['admin', 'user'] }
+    },
+    {
+      path: 'my-projects',
+      component: MyProjectsComponent,
       canActivate: [guard], 
       data: { expectedRol: ['admin', 'user'] }
     },
