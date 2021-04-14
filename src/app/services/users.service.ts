@@ -2,7 +2,7 @@ import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jwt } from '../models/Jwt';
-import { Usuario } from '../models/Usuario';
+import { User } from '../models/User';
 import { constantes } from '../utils/constants';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class UsersService {
     return this.http.get<any>(constantes.URL_REGISTRO + "/" + username, { observe: 'response' } );
   }
 
-  public registerUser(user: Usuario): Observable<any> {
+  public registerUser(user: User): Observable<any> {
 
     return this.http.post<any>(this.apiEndpoint + "/api/admin/createUser", user, 
     { 
@@ -34,8 +34,8 @@ export class UsersService {
     });
   }
 
-  public getAllUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.apiEndpoint + "/api/admin/getAllUsers");
+  public getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiEndpoint + "/api/admin/getAllUsers");
   }
 
 }

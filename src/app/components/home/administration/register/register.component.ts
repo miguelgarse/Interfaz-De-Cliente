@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from 'src/app/models/Usuario';
+import { User } from 'src/app/models/User';
 import { UsersService } from 'src/app/services/users.service';
 import { HttpStatusCodes } from 'src/app/utils/http-status-codes';
 
@@ -12,9 +12,9 @@ import { HttpStatusCodes } from 'src/app/utils/http-status-codes';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: Usuario = new Usuario();
+  public user: User = new User();
   public repeatedPassword: string = "";
-  public usersList: Usuario[] = [];
+  public usersList: User[] = [];
 
   constructor(private usersService: UsersService,
     private toastr: ToastrService) { }
@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public getUserList(): void {
-    this.usersService.getAllUsers().subscribe((users: Usuario[]) => {
+    this.usersService.getAllUsers().subscribe((users: User[]) => {
       this.usersList = users;
     }, error => {
       console.error('Error getting all users');

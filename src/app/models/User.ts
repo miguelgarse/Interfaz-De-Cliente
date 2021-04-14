@@ -1,6 +1,6 @@
 import { Role } from 'src/app/models/Role';
 
-export class Usuario {
+export class User {
     id: number;
     name: string;
     lastname: string;
@@ -8,7 +8,7 @@ export class Usuario {
     password: string;
     email: string;
     roles: Role[];
-    createdBy: Usuario;
+    createdBy: User;
 	dateCreated: Date;
     
     constructor(){ }
