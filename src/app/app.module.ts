@@ -22,6 +22,7 @@ import { PrincipalComponent } from './components/home/principal/principal.compon
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { MyProjectsComponent } from './components/home/my-projects/my-projects.component';
 import { NewProjectDialogComponent } from './components/home/projects/new-project-dialog/new-project-dialog.component';
+import { FormProjectComponent } from './components/home/projects/form-project/form-project.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NewProjectDialogComponent } from './components/home/projects/new-projec
     PrincipalComponent,
     ProjectsComponent,
     MyProjectsComponent,
-    NewProjectDialogComponent
+    NewProjectDialogComponent,
+    FormProjectComponent
   ],
   imports: [
     BrowserModule, 

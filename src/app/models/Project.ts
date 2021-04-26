@@ -2,6 +2,7 @@ import { SensorValue } from "./SensorValue";
 import { User } from "./User";
 
 export class Project {
+    id: number;
     title: string;
     description: string;
     keywords: string;

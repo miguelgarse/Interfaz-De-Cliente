@@ -22,4 +22,7 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  redirectRegister(projectId: number): void {
+    this.router.navigate(['home/form-project'], { skipLocationChange: true, state: { id: projectId } });
+  }
 }

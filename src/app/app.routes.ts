@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/home/administration/register/reg
 import { ProdGuardService as guard } from './guards/prod-guard.service';
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { MyProjectsComponent } from './components/home/my-projects/my-projects.component';
+import { FormProjectComponent } from './components/home/projects/form-project/form-project.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,6 +23,12 @@ const routes: Routes = [
     {
       path: 'my-projects',
       component: MyProjectsComponent,
+      canActivate: [guard], 
+      data: { expectedRol: ['admin', 'user'] }
+    },
+    {
+      path: 'form-project',
+      component: FormProjectComponent,
       canActivate: [guard], 
       data: { expectedRol: ['admin', 'user'] }
     },

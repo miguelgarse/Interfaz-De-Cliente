@@ -18,14 +18,14 @@ export class ProjectsService {
 
 
   public newProject(project: Project): Observable<any> {
-    return this.http.post<any>(this.apiEndpoint + "/api/admin/createUser", project, 
+    return this.http.post<any>(this.apiEndpoint + "/api/project", project, 
     { 
       observe: 'response' 
     });
   }
 
   public updateProject(project: Project): Observable<any> {
-    return this.http.post<any>(this.apiEndpoint + "/api/admin/createUser", project, 
+    return this.http.put<any>(this.apiEndpoint + "/api/project", project, 
     { 
       observe: 'response' 
     });
@@ -33,6 +33,10 @@ export class ProjectsService {
 
   public findAllProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.apiEndpoint + "/api/project");
+  }
+
+  public findProjectById(projectId: number): Observable<Project> {
+    return this.http.get<Project>(this.apiEndpoint + "/api/project/" + projectId);
   }
 
 }
